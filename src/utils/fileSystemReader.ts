@@ -32,7 +32,19 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
               {
                 name: 'FeliQuiz.md',
                 type: 'file',
-                path: 'lucas-feliciano/projetos/web-development/React-Portfolio.md',
+                path: 'lucas-feliciano/projetos/web-development/FeliQuiz.md',
+              }
+            ]
+          },
+          {
+            name: 'Fiap',
+            type: 'folder',
+            path: 'lucas-feliciano/projetos/fiap',
+            children: [
+              {
+                name: 'EcoSimulator.md',
+                type: 'file',
+                path: 'lucas-feliciano/projetos/fiap/EcoSimulator.md',
               }
             ]
           }
