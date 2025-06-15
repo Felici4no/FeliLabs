@@ -1,5 +1,4 @@
-// src/utils/fileSystemReader.ts
-
+// Utility to dynamically import all markdown files from the felilabs directory
 export interface FileSystemItem {
   name: string;
   type: 'file' | 'folder';
@@ -8,9 +7,7 @@ export interface FileSystemItem {
   content?: string;
 }
 
-// Importa todos os arquivos .md como texto puro (raw) dentro da pasta /src/felilabs/
-const mdModules = import.meta.glob('/src/felilabs/**/*.md', { as: 'raw' });
-
+// Function to create the file system structure
 export async function createFileSystemStructure(): Promise<FileSystemItem> {
   const structure: FileSystemItem = {
     name: 'Lucas Feliciano',
@@ -33,76 +30,11 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
             path: 'lucas-feliciano/projetos/web-development',
             children: [
               {
-                name: 'React-Portfolio.md',
+                name: 'FeliQuiz.md',
                 type: 'file',
                 path: 'lucas-feliciano/projetos/web-development/React-Portfolio.md',
-              },
-              {
-                name: 'E-commerce-Platform.md',
-                type: 'file',
-                path: 'lucas-feliciano/projetos/web-development/E-commerce-Platform.md',
               }
             ]
-          },
-          {
-            name: 'mobile-apps',
-            type: 'folder',
-            path: 'lucas-feliciano/projetos/mobile-apps',
-            children: [
-              {
-                name: 'Task-Manager-App.md',
-                type: 'file',
-                path: 'lucas-feliciano/projetos/mobile-apps/Task-Manager-App.md',
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: 'pesquisa',
-        type: 'folder',
-        path: 'lucas-feliciano/pesquisa',
-        children: [
-          {
-            name: 'ai-machine-learning',
-            type: 'folder',
-            path: 'lucas-feliciano/pesquisa/ai-machine-learning',
-            children: [
-              {
-                name: 'Neural-Networks.md',
-                type: 'file',
-                path: 'lucas-feliciano/pesquisa/ai-machine-learning/Neural-Networks.md',
-              },
-              {
-                name: 'Data-Science.md',
-                type: 'file',
-                path: 'lucas-feliciano/pesquisa/ai-machine-learning/Data-Science.md',
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: 'notas',
-        type: 'folder',
-        path: 'lucas-feliciano/notas',
-        children: [
-          {
-            name: 'aprendizado',
-            type: 'folder',
-            path: 'lucas-feliciano/notas/aprendizado',
-            children: [
-              {
-                name: 'TypeScript-Advanced.md',
-                type: 'file',
-                path: 'lucas-feliciano/notas/aprendizado/TypeScript-Advanced.md',
-              }
-            ]
-          },
-          {
-            name: 'ideias.md',
-            type: 'file',
-            path: 'lucas-feliciano/notas/ideias.md',
           }
         ]
       }
@@ -113,22 +45,23 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
   return structure;
 }
 
+// Uses Vite's import.meta.glob to safely import .md files as raw text
+const markdownModules = import.meta.glob('../felilabs/**/*.md', { as: 'raw' });
+
 async function loadFileContents(item: FileSystemItem): Promise<void> {
   if (item.type === 'file' && item.path.endsWith('.md')) {
-    const relativePath = `/src/felilabs/${item.path}`;
-    const matchedKey = Object.keys(mdModules).find(key => key.endsWith(item.path));
+    const pathKey = `../felilabs/${item.path}`;
+    const loader = markdownModules[pathKey];
 
-    if (matchedKey) {
+    if (loader) {
       try {
-        const content = await mdModules[matchedKey]();
-        item.content = content;
+        item.content = await loader();
       } catch (error) {
-        console.warn(`Erro carregando ${item.path}:`, error);
-        item.content = `# ${item.name}\n\nErro ao carregar conteúdo.`;
+        console.warn(`Erro ao carregar ${item.path}:`, error);
+        item.content = `# ${item.name.replace('.md', '')}\n\nErro ao carregar conteúdo.`;
       }
     } else {
-      console.warn(`Arquivo não encontrado: ${item.path}`);
-      item.content = `# ${item.name}\n\nArquivo não encontrado.`;
+      item.content = `# ${item.name.replace('.md', '')}\n\nConteúdo não encontrado.`;
     }
   }
 

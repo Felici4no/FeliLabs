@@ -1,52 +1,5 @@
-# React Portfolio Project
+No FeliQuiz, eu quis ir além do trivial. Perguntas e respostas não são só um jogo, são uma forma poderosa de expressão, uma maneira simples, porém profunda, de revelar quem você realmente é. Aqui, não se trata de competir ou marcar pontos. O que importa é descobrir, entender e valorizar suas múltiplas facetas.
 
-Um site de portfólio moderno construído com React e TypeScript.
+Cada pergunta é feita para refletir a complexidade humana, cada resposta é um fragmento da sua identidade que ganha vida. Não há um único jeito certo de ser, mas infinitas possibilidades que você pode explorar e colecionar.
 
-## Características
-
-- Design responsivo
-- Toggle de tema escuro/claro
-- Animações suaves
-- Otimizado para SEO
-
-## Stack Tecnológico
-
-- **React 18** - Biblioteca principal
-- **TypeScript** - Tipagem estática
-- **Tailwind CSS** - Estilização
-- **Framer Motion** - Animações
-
-## Começando
-
-```bash
-npm install
-npm run dev
-```
-
-## Arquitetura
-
-O projeto segue uma arquitetura limpa com separação clara de responsabilidades:
-
-- `/components` - Componentes reutilizáveis
-- `/hooks` - Hooks customizados
-- `/utils` - Funções utilitárias
-- `/types` - Definições de tipos TypeScript
-
-## Funcionalidades
-
-### Design Responsivo
-- Mobile-first approach
-- Breakpoints otimizados
-- Layout flexível
-
-### Performance
-- Code splitting
-- Lazy loading
-- Otimização de imagens
-
-### SEO
-- Meta tags dinâmicas
-- Structured data
-- Sitemap automático
-
-Este projeto demonstra práticas modernas de desenvolvimento web e arquitetura limpa.
+Eu criei o FeliQuiz para ser mais que uma ferramenta, para ser um espaço de autoconhecimento, onde você pode navegar pelas suas dúvidas, certezas e surpresas. É uma experiência que convida você a se reconhecer, a se desafiar e a se reinventar.

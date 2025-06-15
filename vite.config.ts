@@ -13,4 +13,9 @@ export default defineConfig({
       external: [],
     },
   },
+  server: {
+    fs: {
+      allow: ['..']
+    }
+  }
 });

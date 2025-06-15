@@ -18,7 +18,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     const flushList = () => {
       if (listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 ml-4">
+          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-4 ml-4 text-sm sm:text-base">
             {listItems}
           </ul>
         );
@@ -46,15 +46,17 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             >
               <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
                 {codeBlockLanguage && (
-                  <div className="bg-gray-700 px-4 py-2 text-sm text-gray-300 font-mono border-b border-gray-600">
+                  <div className="bg-gray-700 px-4 py-2 text-xs sm:text-sm text-gray-300 font-mono border-b border-gray-600">
                     {codeBlockLanguage}
                   </div>
                 )}
-                <pre className="p-4 overflow-x-auto">
-                  <code className="text-sm font-mono text-gray-100 leading-relaxed">
-                    {codeBlockContent.join('\n')}
-                  </code>
-                </pre>
+                <div className="overflow-x-auto">
+                  <pre className="p-4">
+                    <code className="text-xs sm:text-sm font-mono text-gray-100 leading-relaxed whitespace-pre">
+                      {codeBlockContent.join('\n')}
+                    </code>
+                  </pre>
+                </div>
               </div>
             </motion.div>
           );
@@ -77,7 +79,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`h1-${index}`}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-4xl font-bold text-white mb-6 border-b border-gray-700 pb-3"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 border-b border-gray-700 pb-3"
           >
             {line.substring(2)}
           </motion.h1>
@@ -92,7 +94,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`h2-${index}`}
             initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-3xl font-semibold text-gray-100 mb-4 mt-8"
+            className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-100 mb-3 sm:mb-4 mt-6 sm:mt-8"
           >
             {line.substring(3)}
           </motion.h2>
@@ -107,7 +109,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`h3-${index}`}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-semibold text-gray-200 mb-3 mt-6"
+            className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-200 mb-2 sm:mb-3 mt-4 sm:mt-6"
           >
             {line.substring(4)}
           </motion.h3>
@@ -122,7 +124,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`h4-${index}`}
             initial={{ opacity: 0, x: -5 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-xl font-semibold text-gray-300 mb-2 mt-4"
+            className="text-base sm:text-lg lg:text-xl font-semibold text-gray-300 mb-2 mt-4"
           >
             {line.substring(5)}
           </motion.h4>
@@ -141,7 +143,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`li-${index}`}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-gray-300"
+            className="text-gray-300 text-sm sm:text-base"
             dangerouslySetInnerHTML={{ __html: processInlineFormatting(content) }}
           />
         );
@@ -159,7 +161,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`li-${index}`}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-gray-300 list-decimal"
+            className="text-gray-300 list-decimal text-sm sm:text-base"
             dangerouslySetInnerHTML={{ __html: processInlineFormatting(numberedMatch[1]) }}
           />
         );
@@ -190,7 +192,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             className="border-l-4 border-blue-400 pl-4 py-2 mb-4 bg-gray-800/50 rounded-r-lg"
           >
             <p 
-              className="text-gray-300 italic"
+              className="text-gray-300 italic text-sm sm:text-base"
               dangerouslySetInnerHTML={{ __html: processInlineFormatting(line.substring(2)) }}
             />
           </motion.blockquote>
@@ -206,7 +208,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`hr-${index}`}
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
-            className="border-gray-700 my-8"
+            className="border-gray-700 my-6 sm:my-8"
           />
         );
         return;
@@ -220,7 +222,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             key={`p-${index}`}
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-gray-300 mb-4 leading-relaxed"
+            className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base"
             dangerouslySetInnerHTML={{ __html: processInlineFormatting(line) }}
           />
         );
@@ -236,7 +238,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
   const processInlineFormatting = (text: string): string => {
     return text
       // Code inline
-      .replace(/`([^`]+)`/g, '<code class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-mono text-sm">$1</code>')
+      .replace(/`([^`]+)`/g, '<code class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-mono text-xs sm:text-sm">$1</code>')
       // Bold text
       .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-white">$1</strong>')
       // Italic text
@@ -249,7 +251,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
 
   return (
     <div className="prose prose-invert max-w-none">
-      <div className="font-mono text-sm leading-relaxed">
+      <div className="font-mono leading-relaxed">
         {renderMarkdown(content)}
       </div>
     </div>

@@ -1,32 +1,14 @@
-# Lucas Feliciano - FeliLabs
+# Sobre o FeliLabs
 
-Bem-vindo ao meu espaço digital no FeliLabs! Este é um ambiente onde compartilho projetos, pesquisas e ideias sobre tecnologia e inovação.
+No meio de tantas ideias, códigos, rascunhos e projetos, percebi que precisava de um espaço. Um lugar onde eu pudesse não só organizar, mas também compartilhar tudo aquilo que estou construindo, aprendendo e pesquisando. Foi assim que nasceu o FeliLabs.
 
-## Sobre Mim
+Uma plataforma que reúne meus projetos, pesquisas, experimentos e anotações importantes. Uma espécie de laboratório aberto e organizado de forma simples, intuitiva e, acima de tudo, funcional.
 
-Desenvolvedor apaixonado por criar soluções que fazem a diferença. Especializado em desenvolvimento web moderno, inteligência artificial e experiência do usuário.
+Aqui, tudo está disposto em pastas. Simples assim. E essa simplicidade não é por acaso, foi a maneira que encontrei de criar um portfólio que fosse, ao mesmo tempo, bonito e prático.
 
-## O que você encontrará aqui
+Se você está navegando por aqui, fique à vontade. Explore, abra as pastas, fuce sem medo. E se algo te chamar atenção, ou se surgir uma ideia, um insight, um projeto em potencial… me chama no LinkedIn. Quem sabe a gente não constrói algo juntos?
 
-### 🚀 Projetos
-Explore diversos projetos de desenvolvimento de software, desde aplicações web até aplicativos móveis, todos construídos com tecnologias modernas e melhores práticas.
+Ah… isso é só o começo. Meu plano é, em breve, abrir o FeliLabs para que qualquer pessoa também possa criar sua própria estrutura de pastas, seus próprios laboratórios, e transformar conhecimento em impacto real.
 
-### 🔬 Pesquisa
-Mergulhe em pesquisas de ponta em IA, machine learning e ciência de dados. Estas notas documentam experimentos, descobertas e insights de vários domínios.
-
-### 📝 Notas & Aprendizado
-Uma coleção curada de materiais de aprendizado, conceitos avançados e insights pessoais adquiridos através do aprendizado contínuo.
-
-## Filosofia
-
-*"A tecnologia deve amplificar a capacidade humana, não substituir a criatividade humana."*
-
-Cada projeto e iniciativa de pesquisa aqui é guiado pelo princípio de criar soluções significativas que potencializam o potencial humano.
-
-## Navegação
-
-Use o explorador de arquivos para navegar pelas diferentes seções. Clique nas pastas para expandi-las e nos arquivos para visualizar seu conteúdo.
-
----
-
-*Última atualização: 2025*
+Bem-vindo ao FeliLabs.
+Lucas Feliciano

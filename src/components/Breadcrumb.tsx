@@ -12,22 +12,22 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ path, onNavigate }) => {
     <motion.nav 
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center gap-2 p-4 bg-gray-800 border-b border-gray-700"
+      className="md:hidden flex items-center gap-2 p-3 bg-gray-800 border-b border-gray-700 overflow-x-auto"
     >
       <button
         onClick={() => onNavigate(-1)}
-        className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors"
+        className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors flex-shrink-0"
       >
-        <Home size={16} />
-        <span className="font-mono text-sm">Início</span>
+        <Home size={14} />
+        <span className="font-mono text-xs">Início</span>
       </button>
       
       {path.map((segment, index) => (
         <React.Fragment key={index}>
-          <ChevronRight size={16} className="text-gray-600" />
+          <ChevronRight size={12} className="text-gray-600 flex-shrink-0" />
           <button
             onClick={() => onNavigate(index)}
-            className="font-mono text-sm text-gray-400 hover:text-white transition-colors"
+            className="font-mono text-xs text-gray-400 hover:text-white transition-colors whitespace-nowrap"
           >
             {segment}
           </button>
