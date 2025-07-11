@@ -15,7 +15,12 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
     path: 'lucas-feliciano',
     children: [
       {
-        name: 'About.md',
+        name: 'Carta de Apresentação',
+        type: 'file',
+        path: 'lucas-feliciano/Lucas.md',
+      },
+      {
+        name: 'FeliLabs',
         type: 'file',
         path: 'lucas-feliciano/About.md',
       },
@@ -24,31 +29,19 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
         type: 'folder',
         path: 'lucas-feliciano/projetos',
         children: [
-          {
-            name: 'web-development',
-            type: 'folder',
-            path: 'lucas-feliciano/projetos/web-development',
-            children: [
               {
-                name: 'FeliQuiz.md',
+                name: 'FeliQuiz',
                 type: 'file',
                 path: 'lucas-feliciano/projetos/web-development/FeliQuiz.md',
-              }
-            ]
-          },
-          {
-            name: 'Fiap',
-            type: 'folder',
-            path: 'lucas-feliciano/projetos/fiap',
-            children: [
+
+              },
               {
-                name: 'EcoSimulator.md',
+                name: 'EcoSimulator',
                 type: 'file',
                 path: 'lucas-feliciano/projetos/fiap/EcoSimulator.md',
               }
             ]
-          }
-        ]
+
       }
     ]
   };

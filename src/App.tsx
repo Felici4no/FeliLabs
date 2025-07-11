@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { FileExplorer } from './components/FileExplorer';
 import { ContentViewer } from './components/ContentViewer';
-import { Breadcrumb } from './components/Breadcrumb';
 import { Header } from './components/Header';
 import { NotFound } from './components/NotFound';
 import { useFileSystem } from './hooks/useFileSystem';
@@ -19,29 +18,26 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data && location.pathname.startsWith('/felilabs')) {
+    if (data) {
       const pathSegments = location.pathname
-        .replace('/felilabs/', '')
+        .replace(/^\//, '')
         .split('/')
         .filter(Boolean);
 
-      const file = findFileByPath(pathSegments, data);
+      if (pathSegments[0] !== 'LucasFeliciano') {
+        navigate('/LucasFeliciano');
+        return;
+      }
+
+      const adjustedSegments = pathSegments.slice(1);
+      const file = findFileByPath(['Lucas Feliciano', ...adjustedSegments], data);
+
       if (file) {
         setSelectedFile(file);
-        setCurrentPath(pathSegments.slice(0, -1));
+        setCurrentPath(adjustedSegments);
       }
     }
   }, [location.pathname, data]);
-
-  useEffect(() => {
-    if (data && !selectedFile && location.pathname === '/') {
-      const aboutFile = data.children?.find(item => item.name === 'About.md');
-      if (aboutFile) {
-        setSelectedFile(aboutFile);
-        navigate('/felilabs/lucas-feliciano/About.md', { replace: true });
-      }
-    }
-  }, [data, selectedFile, location.pathname, navigate]);
 
   const findFileByPath = (pathSegments: string[], node: FileSystemItem): FileSystemItem | null => {
     let current = node;
@@ -56,14 +52,14 @@ function App() {
 
   const handleFileSelect = (file: FileSystemItem) => {
     setSelectedFile(file);
-    navigate(`/felilabs/${file.path}`);
+    navigate(`/${file.path.replace('Lucas Feliciano', 'LucasFeliciano')}`);
     if (window.innerWidth < 1024) setSidebarOpen(false);
   };
 
   const handleBreadcrumbNavigate = (index: number) => {
     const newPath = index === -1 ? [] : currentPath.slice(0, index + 1);
     setCurrentPath(newPath);
-    navigate(`/felilabs/lucas-feliciano/${newPath.join('/')}`);
+    navigate(`/LucasFeliciano/${newPath.join('/')}`);
   };
 
   const FileSystemInterface = () => (
@@ -142,7 +138,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<FileSystemInterface />} />
-      <Route path="/felilabs/*" element={<FileSystemInterface />} />
+      <Route path="/LucasFeliciano/*" element={<FileSystemInterface />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
