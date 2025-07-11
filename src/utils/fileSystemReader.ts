@@ -20,28 +20,78 @@ export async function createFileSystemStructure(): Promise<FileSystemItem> {
         path: 'lucas-feliciano/Lucas.md',
       },
       {
-        name: 'FeliLabs',
-        type: 'file',
-        path: 'lucas-feliciano/About.md',
-      },
-      {
-        name: 'projetos',
+        name: 'Projetos',
         type: 'folder',
         path: 'lucas-feliciano/projetos',
         children: [
               {
-                name: 'FeliQuiz',
+                name: 'FeliLabs',
                 type: 'file',
-                path: 'lucas-feliciano/projetos/web-development/FeliQuiz.md',
-
+                path: 'lucas-feliciano/About.md',
               },
+//              {
+//                name: 'FeliQuiz',
+//                type: 'file',
+//                path: 'lucas-feliciano/projetos/web-development/FeliQuiz.md',
+//              },
               {
                 name: 'EcoSimulator',
                 type: 'file',
                 path: 'lucas-feliciano/projetos/fiap/EcoSimulator.md',
               }
             ]
+      },{
+        name: 'Skills',
+        type: 'folder',
+        path: 'lucas-feliciano/skills',
+        children: [
+              {
+                name: 'Soft skills',
+                type: 'file',
+                path: 'lucas-feliciano/skills/SoftSkills.md',
+              },
+              {
+                name: 'Hard skills',
+                type: 'file',
+                path: 'lucas-feliciano/skills/HardSkills.md',
+              }
+            ]
+      },{
+        name: 'Certificados',
+        type: 'folder',
+        path: 'lucas-feliciano/certificados',
+        children: [
+              {
+                name: 'Cursos de Formação e Aprendizado',
+                type: 'file',
+                path: 'lucas-feliciano/certificados/cursos-de-formacao-e-aprendizado.md',
 
+              },
+              {
+                name: 'Certificações Técnicas',
+                type: 'file',
+                path: 'lucas-feliciano/certificados/certificacoes-tecnicas.md',
+
+              },
+              {
+                name: 'Certificados de Participação ou Eventos',
+                type: 'file',
+                path: 'lucas-feliciano/certificados/certificados-de-participacao-ou-eventos.md',
+
+              }
+            ]
+      },{
+        name: 'Links',
+        type: 'folder',
+        path: 'lucas-feliciano/links',
+        children: [
+              {
+                name: 'Links',
+                type: 'file',
+                path: 'lucas-feliciano/links/links.md',
+
+              }
+            ]
       }
     ]
   };

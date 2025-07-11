@@ -1,5 +1,3 @@
-# Sobre o FeliLabs
-
 No meio de tantas ideias, códigos, rascunhos e projetos, percebi que precisava de um espaço. Um lugar onde eu pudesse não só organizar, mas também compartilhar tudo aquilo que estou construindo, aprendendo e pesquisando. Foi assim que nasceu o FeliLabs.
 
 Uma plataforma que reúne meus projetos, pesquisas, experimentos e anotações importantes. Uma espécie de laboratório aberto e organizado de forma simples, intuitiva e, acima de tudo, funcional.
